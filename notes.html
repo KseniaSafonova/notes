@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .form {
+        display: grid;
+        width: 30%;
+        row-gap: 15px;
+    }
+</style>
+
+<body>
+    <div class="form">
+        <input type="text" id="title" placeholder="Тема заметки">
+        <input type="date" id="date">
+        <textarea name="" id="note" cols="30" rows="10" placeholder="Текст заметки"></textarea>
+        <button onclick="setStorage(), getStorage()">Сохранить заметку!</button>
+    </div>
+    <div class="notes">
+        <p id="returnTitle"></p>
+        <p id="returnDate"></p>
+        <p id="returnNote"></p>
+    </div>
+
+    <script>
+
+
+        function setStorage() {
+            let title = document.getElementById('title').value;
+            let date = document.getElementById('date').value;
+            let note = document.getElementById('note').value;
+
+            localStorage.setItem('Тема заметки: ', title);
+            localStorage.setItem('Дата: ', date);
+            localStorage.setItem('Заметка: ', note);
+        }
+
+        function getStorage() {
+            let returnTitle = localStorage.getItem('Тема заметки: ');
+            let returnDate = localStorage.getItem('Дата: ');
+            let returnNote = localStorage.getItem('Заметка: ');
+
+            document.getElementById('returnTitle').innerHTML = returnTitle;
+            document.getElementById('returnDate').innerHTML = returnDate;
+            document.getElementById('returnNote').innerHTML = returnNote;
+        }
+
+    </script>
+</body>
+
+</html>
